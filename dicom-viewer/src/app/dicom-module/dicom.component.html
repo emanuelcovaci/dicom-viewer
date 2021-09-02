@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>DICOM Viewer</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>assessment</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>donut_small</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div id="dwv">
+  <mat-progress-bar mode="determinate" value="{{ loadProgress }}"></mat-progress-bar>
+  <div class="button-row">
+    <button mat-raised-button color="primary" [matMenuTriggerFor]="menu" [disabled]="!dataLoaded">{{ selectedTool }}
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" [overlapTrigger]="false" yPosition="below">
+      <button *ngFor="let tool of toolNames" mat-menu-item (value)="tool" (click)="onChangeTool(tool)">{{ tool }}</button>
+    </mat-menu>
+
+    <button mat-raised-button color="primary" (click)="realodPage()" [disabled]="!dataLoaded">Reset</button>
+    <button mat-raised-button color="primary" (click)="openTagsDialog()" [disabled]="!dataLoaded">Details</button>
+    <button mat-raised-button color="primary" (click)="onCreateApp()" [disabled]="!dataLoaded">Add</button>
+  </div>
+  <div id="dropBox"></div>
+  <div class="layerContainer"></div>
+</div>
+
+<mat-divider></mat-divider>
+<footer>
+  &copy; Emanuel Covaci -  All rights reserved 2021
+</footer>

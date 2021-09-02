@@ -1,0 +1,51 @@
+@use '~@angular/material' as mat;
+@import 'src/assets/theme';
+$primary: map-get($theme, primary);
+$accent: map-get($theme, accent);
+.example-spacer {
+  flex: 1 1 auto;
+}
+#dwv {
+  height: 90%; }
+
+a {
+  color: mat.get-color-from-palette($accent);
+}
+a:hover {
+  color: mat.get-color-from-palette($primary);
+}
+
+.button-row {
+  text-align: center;
+  padding: 5px;
+}
+#dwv .mat-raised-button {
+  margin: 0.1em;
+}
+.legend {
+  text-align: center;
+  font-size: 8pt;
+  margin: 1em;
+}
+
+/* Layers */
+.layerContainer {
+  position: relative; padding: 0;
+  margin: auto; text-align: center; }
+.layer {
+  position: absolute;
+  pointer-events: none; }
+
+/* drag&drop */
+.dropBox {
+  margin: auto;
+  text-align: center; vertical-align: middle;
+  width: 50%; height: 75%; }
+.dropBoxBorder {
+  border: 5px dashed mat.get-color-from-palette($primary, lighter); }
+.dropBoxBorder.hover {
+  border: 5px dashed mat.get-color-from-palette($primary); }
+
+footer{
+  padding: 20px;
+}
